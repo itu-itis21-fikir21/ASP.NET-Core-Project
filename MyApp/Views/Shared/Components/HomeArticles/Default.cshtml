@@ -1,0 +1,19 @@
+﻿@using Entity.DTOs.Articles
+@model List<ArticleDto>
+
+<div class="content">
+    <ul>
+        @foreach(var item in Model)
+        {
+            <li>
+                
+                    <h5>@item.Title</h5>
+                    <p> @(item.Content.Length > 150 ? item.Content.Substring(0, 150) : item.Content) ...</p>
+                    <span>@item.CreatedDate</span>
+                
+            </li>
+            
+        }
+        
+    </ul>
+</div>

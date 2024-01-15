@@ -1,0 +1,91 @@
+﻿@model List<ArticleDto>
+
+<div class="container-xxl flex-grow-1 container-p-y">
+
+
+	<h4 class="py-3 mb-4">
+		<span class="text-muted fw-light">Tables /</span> Basic Tables
+	</h4>
+
+
+
+
+	<div class="card">
+		<div class="table-responsive text-nowrap m-5">
+			@{
+				@if (!User.IsInRole($"{RoleConsts.User}"))
+				{
+					<a class="btn btn-success mb-3" asp-area="Admin" asp-controller="Article" asp-action="Add">
+						Add Article <i class="bx bx-plus"></i>
+					</a>
+				}
+			}
+
+
+			<table class="table table-bordered" id="articlesTable" width="100%" collspacing="0">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Category</th>
+						<th>Created Date</th>
+						<th>Created By</th>
+						<th>Status</th>
+						@{
+							@if (!User.IsInRole($"{RoleConsts.User}"))
+							{
+								<th>Processes</th>
+							}
+						}
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Title</th>
+						<th>Category</th>
+						<th>Created Date</th>
+						<th>Created By</th>
+						<th>Status</th>
+						@{
+							@if (!User.IsInRole($"{RoleConsts.User}"))
+							{
+								<th>Processes</th>
+							}
+						}
+					</tr>
+				</tfoot>
+				<tbody class="table-border-bottom-0">
+					@foreach (var item in Model)
+					{
+						<tr name="@item.Id">
+							<td>@item.Title</td>
+							<td>@item.Category.Name</td>
+							<td>@item.CreatedDate.ToShortDateString()</td>
+							<td>@item.CreatedBy</td>
+							<td>@(item.IsDeleted ? "Not Active" : "Active")</td>
+							@{
+								@if (!User.IsInRole($"{RoleConsts.User}"))
+								{
+
+									<td>
+
+										<a class="btn btn-primary btn-sm" data-id="@item.Id" asp-area="Admin" asp-controller="Article" asp-action="Update" asp-route-articleId="@item.Id"><i class="bx bxs-edit"></i></a>
+										<a class="btn btn-danger btn-sm" data-id="@item.Id" asp-area="Admin" asp-controller="Article" asp-action="Delete" asp-route-articleId="@item.Id"><i class="bx bx-minus-circle"></i></a>
+
+
+									</td>
+								}
+							}
+
+						</tr>
+
+
+
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+@section Scripts{
+	<script src="~/js/articleIndex.js" type="application/ecmascript"></script>
+}

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "u0PCUiX1Yv6iUrZO2rMYkR85/T+smJDo6tkebVV6JTnbEP7ZNN+Ag1eR3B0X1jki3s1x1U92mDLmUltUis8B8g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dell\\source\\repos\\Core\\Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.21\\microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512"
+  ],
+  "logs": []
+}
